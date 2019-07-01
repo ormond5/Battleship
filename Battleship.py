@@ -45,10 +45,6 @@ def print_computer_board(computer_board): #made a function called print_board wi
         print(" ").join(row) #sepearion/spacing
 
 
-
-
-
-
 def get_user_input():
     while(True):
         try:
@@ -236,25 +232,6 @@ def user_guess(computer_board,comp_x,comp_y):
             print_computer_board(computer_board)
             sys.exit(0)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ships = {'E':5,'B':4, "A":3,"F":3,"D":2}
 
 def computer_place_ships(computer_board, ships):
@@ -320,17 +297,6 @@ def computer_place_ships(computer_board, ships):
                         computer_board[x][y] = "O"
                         computer_board[x][y-k] = "O"
                 break;
-
-
-
-
-
-
-
-
-
-
-    
 
 def comp_guess(user_board):
     hits = 0;
@@ -402,8 +368,39 @@ def nextguess(user_board,comp_guess_x,comp_guess_y,hits):
             raw_input("Press Enter to continue...")
             break;
                         
+################# MAIN ##################################
+while (True):
+    try:     
+        print("Welcome to the game Battleship")
+        print("First here is your board. Lets place some ships")
+        print("Keep in mind you have a 10 by 10 grid. With numbers from 1-10")
+        print_user_board(user_board)
+        place_destroyer();
+        print("Awesome here is your Destroyer")
+        print_user_board(user_board)
+        place_battleship();
+        print("Awesome here is your Battleship")
+        print_user_board(user_board)
+    ##place_carrier();
+    ##print("Awesome here is your Carrier")
+    ##print_user_board(user_board)
+        print "Okay you have placed your ships, now lets start finding the enimies ships. "
+
+        while(1):
+            user_guess(computer_board,comp_x,comp_y)
+            comp_guess(user_board)
+
+    except KeyboardInterrupt:
+        decision = raw_input("I see you are not happy! Would you like to quit or restart? (Q or R) ").upper()
+        if (decision == "Q"):
+            print"Thanks for playing, Goodbye!"
+            sys.exit(0)
+        elif(decision == "R"):
+            print "Restarting now..."
+            time.sleep(1)
                               
-    
+                   
+#     More code for smart guessing Not tested yet
 
 ##            elif(user_board[comp_guess_y+1]<9 and user_board[comp_guess_y+1] != "O"):## x,y+1
 ##                if (user_board[comp_guess_x][comp_guess_y]!="O"):
@@ -463,33 +460,3 @@ def nextguess(user_board,comp_guess_x,comp_guess_y,hits):
                     
 
 
-################# MAIN ##################################
-while (True):
-    try:     
-        print("Welcome to the game Battleship")
-        print("First here is your board. Lets place some ships")
-        print("Keep in mind you have a 10 by 10 grid. With numbers from 1-10")
-        print_user_board(user_board)
-        place_destroyer();
-        print("Awesome here is your Destroyer")
-        print_user_board(user_board)
-        place_battleship();
-        print("Awesome here is your Battleship")
-        print_user_board(user_board)
-    ##place_carrier();
-    ##print("Awesome here is your Carrier")
-    ##print_user_board(user_board)
-        print "Okay you have placed your ships, now lets start finding the enimies ships. "
-
-        while(1):
-            user_guess(computer_board,comp_x,comp_y)
-            comp_guess(user_board)
-
-    except KeyboardInterrupt:
-        decision = raw_input("I see you are not happy! Would you like to quit or restart? (Q or R) ").upper()
-        if (decision == "Q"):
-            print"Thanks for playing, Goodbye!"
-            sys.exit(0)
-        elif(decision == "R"):
-            print "Restarting now..."
-            time.sleep(1)
