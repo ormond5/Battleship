@@ -2,7 +2,9 @@
 Python Battleship app created as part of a requirement for my undergraduate degree. 
 Worked done at Coker University, advised by Dr. Zhe Zhang
 
-Full Details of overall app can be found in the Powepoint
+Full Details of overall app can be found in the Powepoint Pdf
+
+Original code was done with Python 2.7
 
 Battleship Rules: 
 
